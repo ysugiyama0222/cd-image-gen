@@ -1,0 +1,5 @@
+.venv
+.vscode
+img
+config.ini
+default_background.png
