@@ -27,6 +27,9 @@ def generate_image_with_ai(client, prompt, output_path, title, artist):
         # 画像を1600x1600に拡大
         enlarge_image(output_path)
 
+    except openai.OpenAIError as e:
+        print(f"Error generating image with AI: {e}")
+
     except openai.error.InvalidRequestError as e:
         print(f"Error code: {e.http_status} - {e.error}")
 
