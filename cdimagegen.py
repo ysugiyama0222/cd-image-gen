@@ -71,13 +71,14 @@ def main():
     parser.add_argument("--ai_prompt", help="AIに渡すプロンプト")
 
     args = parser.parse_args()
-
+    background_image_filename = "background_" + args.output_file
+    output_image_filename = args.output_file
     if args.use_ai:
-        background_path = generate_image_with_ai(args.ai_prompt, "background.png")
+        background_path = generate_image_with_ai(args.ai_prompt, background_image_filename)
     else:
         background_path = "default_background.png"  # デフォルトの背景画像
 
-    create_cd_jacket(background_path, args.output_file, args.title, args.artist)
+    create_cd_jacket(background_path, output_image_filename, args.title, args.artist)
 
 if __name__ == "__main__":
     main()
